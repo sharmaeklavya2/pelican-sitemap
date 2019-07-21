@@ -20,11 +20,6 @@ from pytz import timezone
 from pelican import signals, contents
 from pelican.utils import get_date
 
-TXT_HEADER = """{0}/index.html
-{0}/archives.html
-{0}/tags.html
-{0}/categories.html
-"""
 
 XML_HEADER = """<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -223,8 +218,6 @@ class SitemapGenerator(object):
 
             if self.format == 'xml':
                 fd.write(XML_HEADER)
-            else:
-                fd.write(TXT_HEADER.format(self.siteurl))
 
             FakePage = collections.namedtuple('FakePage',
                                               ['status',
